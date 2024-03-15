@@ -33,16 +33,16 @@
                         <div class="example-box" cdkDrag>{{item.Name}}</div>
                         }
                     </div>
-                    @for (ques of questionList; track ques; let i = $index) {
+                    <!-- @for (ques of questionList; track ques; let i = $index) {
                     <div class="col-md-12" id="question-list-data">
                         <div class="bg-light" id="question-list-val">
                             <div class="field pointer shadow-bg" [dndDraggable]="ques" [dndEffectAllowed]="'copy'"
                                 (dndEnd)="onDragEnd($event, ques)" id="question">
-                                <h5>{{ques.Name}}</h5>
+                                <h5>{{ques}}</h5>
                             </div>
                         </div>
                     </div>
-                    }
+                    } -->
                 </div>
             </div>
         </div>
@@ -55,9 +55,9 @@
                 </section>
                 }
             </div>
-            <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]"
+            <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="value" [cdkDropListConnectedTo]="[todoList]"
                 class="example-list" (cdkDropListDropped)="drop($event)">
-                @for (item of done; track item) {
+                @for (item of value; track item) {
                 <div class="example-box" cdkDrag>{{item}}</div>
                 }
             </div>
