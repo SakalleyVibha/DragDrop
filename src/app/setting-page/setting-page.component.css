@@ -1,0 +1,43 @@
+.box {
+    float: left;
+    height: 20px;
+    width: 20px;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    clear: both;
+}
+
+.image-section {
+    position: relative;
+    width: 100%;
+    height: auto;
+    /* Adjust height as needed */
+    overflow: hidden;
+}
+
+.image-section img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.scrollable-div {
+    width: 60%;
+    /* Adjust width as needed */
+    height: 28%;
+    /* Adjust height as needed */
+    overflow: auto;
+    /* Make the div scrollable */
+    /* border: 1px solid #ccc; */
+    /* Just for demonstration */
+    /* padding: 10px; */
+    /* Just for demonstration */
+}
+
+.scrollable {
+
+    width: auto;
+    height: 28%;
+    overflow: auto;
+
+}
