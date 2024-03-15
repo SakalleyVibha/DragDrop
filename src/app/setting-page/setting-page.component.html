@@ -1,4 +1,4 @@
-<div class="container-fluid position-relative" id="parent">
+<!-- <div class="container-fluid position-relative" id="parent">
     <div class="row" id="rows">
         <div class="col-md-3 border-primary" id="drag-zone">
             <div class="scrollable" id="drag-zone-list">
@@ -30,10 +30,10 @@
                     <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="questionList"
                         [cdkDropListConnectedTo]="[value]" class="example-list" (cdkDropListDropped)="drop($event)">
                         @for (item of questionList; track item) {
-                        <div class="example-box" cdkDrag>{{item.Name}}</div>
+                        <div class="example-box" cdkDrag>{{item}}</div>
                         }
                     </div>
-                    <!-- @for (ques of questionList; track ques; let i = $index) {
+                    @for (ques of questionList; track ques; let i = $index) {
                     <div class="col-md-12" id="question-list-data">
                         <div class="bg-light" id="question-list-val">
                             <div class="field pointer shadow-bg" [dndDraggable]="ques" [dndEffectAllowed]="'copy'"
@@ -42,7 +42,7 @@
                             </div>
                         </div>
                     </div>
-                    } -->
+                    }
                 </div>
             </div>
         </div>
@@ -66,4 +66,38 @@
     <div class='box position-absolute' [ngStyle]="{'background-color' : 'red'}" style="top: 593px; left: 1508px;"
         id="signer-color">
     </div>
-</div>
+</div> -->
+
+<div class="example-container">
+    <h2>To do</h2>
+  
+    <div
+      cdkDropList
+      #todoList="cdkDropList"
+      [cdkDropListData]="todo"
+      [cdkDropListConnectedTo]="[doneList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      @for (item of todo; track item) {
+        <div class="example-box" cdkDrag>{{item}}</div>
+      }
+    </div>
+  </div>
+  
+  <div class="example-container">
+    <h2>Done</h2>
+  
+    <div
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="done"
+      [cdkDropListConnectedTo]="[todoList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      @for (item of done; track item) {
+        <div class="example-box" cdkDrag>{{item}}</div>
+      }
+    </div>
+  </div>
+  
+  <div class='box position-relative' [ngStyle]="{'background-color' : 'red'}" style="top: 181px; left : 659px;" id="signer-color"></div>  
