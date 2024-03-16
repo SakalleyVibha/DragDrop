@@ -1,103 +1,34 @@
-<!-- <div class="container-fluid position-relative" id="parent">
-    <div class="row" id="rows">
-        <div class="col-md-3 border-primary" id="drag-zone">
-            <div class="scrollable" id="drag-zone-list">
+<div cdkDropListGroup>
+    <div class="example-container">
+        <h2>Available items</h2>
 
-                <div class="container" id="signer-info">
-                    <div class="row" id="sign-info-row">
-                        @for (signer of participant_arr; track signer; let i = $index) {
-                        <div class="col-md-12" id="signer-info-list">
-                            <div class="bg-light" id="signer-infor">
-                                <div class='box' [ngStyle]="{'background-color' : signer.color}"
-                                    (click)="selectedParticipant(i)" id="signer-color"></div>
-                                {{signer.participnt}}
-                            </div>
-                        </div>
-                        }
-                    </div>
-                </div>
-                <div id="selected-signer">
-                    <div id="selected-part">
-
-                        Selected Participant :
-                    </div>
-                    <div *ngIf="finalSelected && finalSelected.participnt" class='box'
-                        [ngStyle]="{'background-color' : finalSelected.color}" id="selected-part-color"></div>
-                    {{finalSelected.participnt ?? 'None Selected'}}
-                </div>
-                ----------------------------------------------------
-                <div id="question-list">
-                    <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="questionList"
-                        [cdkDropListConnectedTo]="[value]" class="example-list" (cdkDropListDropped)="drop($event)">
-                        @for (item of questionList; track item) {
-                        <div class="example-box" cdkDrag>{{item}}</div>
-                        }
-                    </div>
-                    @for (ques of questionList; track ques; let i = $index) {
-                    <div class="col-md-12" id="question-list-data">
-                        <div class="bg-light" id="question-list-val">
-                            <div class="field pointer shadow-bg" [dndDraggable]="ques" [dndEffectAllowed]="'copy'"
-                                (dndEnd)="onDragEnd($event, ques)" id="question">
-                                <h5>{{ques}}</h5>
-                            </div>
-                        </div>
-                    </div>
-                    }
-                </div>
-            </div>
-        </div>
-        <div class="col-md-9 border-secondary bg-primary" id="tag22">
-            <div class="container bg-light scrollable-div" id="drop-zone">
-                @for (img of imageSlider; track img; let i = $index) {
-                <section class="dndDropArea image-section" style="border: 2px solid green;" dndDropzone
-                    id="drop-zone-sect" (dndDragover)="onDragover($event)" (dndDrop)="onDrop($event, i)">
-                    <img [src]="img.image" alt="" id="drop-zone-sect-img">
-                </section>
-                }
-            </div>
-            <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="value" [cdkDropListConnectedTo]="[todoList]"
-                class="example-list" (cdkDropListDropped)="drop($event)">
-                @for (item of value; track item) {
-                <div class="example-box" cdkDrag>{{item}}</div>
-                }
-            </div>
+        <div cdkDropList [cdkDropListData]="questionList" class="example-list" cdkDropListSortingDisabled
+            (cdkDropListDropped)="drop($event)">
+            @for (item of questionList; track item) {
+            <div class="example-box" cdkDrag>{{item.Name}}</div>
+            }
         </div>
     </div>
-    <div class='box position-absolute' [ngStyle]="{'background-color' : 'red'}" style="top: 593px; left: 1508px;"
-        id="signer-color">
-    </div>
-</div> -->
 
-<div class="example-container">
-    <h2>To do</h2>
-  
-    <div
-      cdkDropList
-      #todoList="cdkDropList"
-      [cdkDropListData]="todo"
-      [cdkDropListConnectedTo]="[doneList]"
-      class="example-list"
-      (cdkDropListDropped)="drop($event)">
-      @for (item of todo; track item) {
-        <div class="example-box" cdkDrag>{{item}}</div>
-      }
+    @for (item of imageSlider; track item; let idx = $index) {
+    <div class="example-container">
+        <h2>{{item.DocumentName}} -{{idx}}</h2>
+        <img [src]="item.image" alt="">
+        <div cdkDropList [cdkDropListData]="item.dataQ" class="example-list" (cdkDropListDropped)="drop($event)">
+            @for (item2 of item.dataQ; track item2) {
+            <div class="example-box" cdkDrag>{{item2.Name}}</div>
+
+            }
+        </div>
     </div>
-  </div>
-  
-  <div class="example-container">
-    <h2>Done</h2>
-  
-    <div
-      cdkDropList
-      #doneList="cdkDropList"
-      [cdkDropListData]="done"
-      [cdkDropListConnectedTo]="[todoList]"
-      class="example-list"
-      (cdkDropListDropped)="drop($event)">
-      @for (item of done; track item) {
-        <div class="example-box" cdkDrag>{{item}}</div>
-      }
-    </div>
-  </div>
-  
-  <div class='box position-relative' [ngStyle]="{'background-color' : 'red'}" style="top: 181px; left : 659px;" id="signer-color"></div>  
+    }
+    <!-- <div class="example-container">
+        <h2>Shopping basket</h2>
+
+        <div cdkDropList [cdkDropListData]="basket2" class="example-list" (cdkDropListDropped)="drop($event)">
+            @for (item of basket2; track item) {
+            <div class="example-box" cdkDrag>{{item}}</div>
+            }
+        </div>
+    </div> -->
+</div>
