@@ -109,6 +109,13 @@
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
+
+.div-text {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
 .example-container {
   width: 400px;
   max-width: 100%;

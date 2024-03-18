@@ -8,6 +8,7 @@ import {
   transferArrayItem,
   CdkDrag,
   CdkDropList,
+  CdkDropListGroup
 } from '@angular/cdk/drag-drop';
 import { ResizableDirective } from '../resizable.directive';
 
@@ -18,6 +19,7 @@ import { ResizableDirective } from '../resizable.directive';
   templateUrl: './setting-page.component.html',
   styleUrl: './setting-page.component.css'
 })
+
 export class SettingPageComponent {
 
   finalSelected: any = {};
@@ -661,27 +663,13 @@ export class SettingPageComponent {
     console.log('questionList: ', this.questionList);
   }
 
-  // onDragEnd(event: DragEvent, ques: any) {
-  //   console.log('ques: ', ques);
-  //   console.log('event: ', event);
-  //   let finalObj = {
-  //     colorId: this.finalSelected.color,
-  //     quesId: ques.Id,
-  //     participantId: this.finalSelected.participnt,
-  //     pageNo: this.pageNum
-  //   }
-  //   console.log('finalObj: ', finalObj);
 
-  //   console.log("drag ended", JSON.stringify(event, null, 2));
-  // }
+  connectedList: any = ['Question_1', 'Question_2', 'Question_3']
+  connectedLis2: any = ['test', 'test2', 'test3']
 
-  // onDragover(event: DragEvent) {
-  //   console.log("dragover", JSON.stringify(event, null, 2));
-  // }
+  items = ['Carrots', 'Tomatoes', 'Onions', 'Apples', 'Avocados'];
 
-  // onDrop(event: DndDropEvent, i: number) {
-  //   this.pageNum = i + 1;
-  // }
+  basket = ['Oranges', 'Bananas', 'Cucumbers'];
 
   getColorRandom() {
     let red = Math.floor(Math.random() * 256);
